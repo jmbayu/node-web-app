@@ -1,0 +1,15 @@
+name: auto_build
+
+on: [push]
+  
+jobs:
+  build:
+
+    runs-on: [self-hosted, linux, x64]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: call python http server...to run.as.fast.as.you.can
+      run: |
+        apt-get install -y iproute2
+        echo "hello world"     
