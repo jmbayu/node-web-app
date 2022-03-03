@@ -11,5 +11,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: call python http server...to run.as.fast.as.you.can
       run: |
-        apt-get install -y iproute2
+        sudo apt-get install -y iproute2
+        pwd 
+        ls -lrt
         echo "hello world"     
