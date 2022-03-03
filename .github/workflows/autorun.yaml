@@ -3,13 +3,13 @@ name: auto_build
 on: [push]
   
 jobs:
-  build:
+  build_n_deliver:
 
     runs-on: [self-hosted, linux, x64]
 
     steps:
     - uses: actions/checkout@v2
-    - name: call python http server...to run.as.fast.as.you.can
+    - name: docker build push
       run: |
         docker build -t mbayu/node-web-app-image .
         docker push mbayu/node-web-app-image
