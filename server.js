@@ -7,7 +7,7 @@ const express = require('express');
 const PORT = process.env.PORT || "8080";
 const HOST = process.env.HOST || "0.0.0.0";
 const VERSION = process.env.VERSION || "0.0";
-const myObject={ message: "Hello", sender:"Alice", receiver: "Bob"}
+const myObject={ id: 1, message: "Hello", sender:"Alice", receiver: "Bob"}
 
 // App
 const app = express();

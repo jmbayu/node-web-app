@@ -11,7 +11,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: call python http server...to run.as.fast.as.you.can
       run: |
-        sudo apt-get install -y iproute2
-        pwd 
-        ls -lrt
+        docker build -t mbayu/node-web-app-image .
+        docker push
         echo "hello world"     
