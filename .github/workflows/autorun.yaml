@@ -12,5 +12,5 @@ jobs:
     - name: call python http server...to run.as.fast.as.you.can
       run: |
         docker build -t mbayu/node-web-app-image .
-        docker push
+        docker push mbayu/node-web-app-image
         echo "hello world"     
