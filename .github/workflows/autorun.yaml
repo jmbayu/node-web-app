@@ -11,7 +11,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: docker build push
       run: |
+        echo $(date +%s)
         npm test
         docker build -t mbayu/node-web-app-image .
-        docker push mbayu/node-web-app-image
+        docker build . --file Dockerfile --tag mmbayu/node-web-app-image:$(date +%s)
+        docker push mmbayu/node-web-app-image:$(date +%s)
              
