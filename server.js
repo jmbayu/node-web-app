@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const si = require('systeminformation');
 const fs = require("fs");
 
 // Constants
@@ -23,6 +24,14 @@ function jsonReader(filePath, cb) {
   });
 }
 
+// Si
+var sdata={}
+si.cpu(function(si_data) {
+    console.log('CPU-Information:');
+    console.log(si_data);
+    sdata=si_data
+});
+
 // App
 const app = express();
 app.get('/', (req, res) => {
@@ -34,10 +43,10 @@ app.get('/', (req, res) => {
     }
     // increase config order count by 1
     config.run_count += 1;
-    var rc = config.run_count;
+    var runcount = config.run_count;
     //
     var timeStamp = Math.floor(new Date().getTime() / 1000)
-    var responseObject={ rc, message: "Hello", sender:"Alice", receiver: "Bob", timeStamp}
+    var responseObject={ runcount, message: "Hello", sender:"Alice", receiver: "Bob", timeStamp, sdata }
     res.send(responseObject);
 
     fs.writeFile("./config.json", JSON.stringify(config), err => {
