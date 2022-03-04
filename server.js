@@ -8,6 +8,7 @@ const fs = require("fs");
 const PORT = process.env.PORT || "8080";
 const HOST = process.env.HOST || "0.0.0.0";
 const VERSION = process.env.VERSION || "0.0";
+const CONFPATH="/tmp/config/config.json";
 
 // Functions
 function jsonReader(filePath, cb) {
@@ -36,7 +37,7 @@ si.cpu(function(si_data) {
 const app = express();
 app.get('/', (req, res) => {
 
-  jsonReader("./config.json", (err, config) => {
+  jsonReader(CONFPATH, (err, config) => {
     if (err) {
       console.log("Error reading file:", err);
       return;
@@ -49,7 +50,7 @@ app.get('/', (req, res) => {
     var responseObject={ runcount, message: "Hello", sender:"Alice", receiver: "Bob", timeStamp, sdata }
     res.send(responseObject);
 
-    fs.writeFile("./config.json", JSON.stringify(config), err => {
+    fs.writeFile(CONFPATH, JSON.stringify(config), err => {
       if (err) console.log("Error writing file:", err);
     });
   });
