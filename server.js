@@ -48,6 +48,7 @@ app.get('/', (req, res) => {
     //
     var timeStamp = Math.floor(new Date().getTime() / 1000)
     var responseObject={ runcount, message: "Hello", sender:"Alice", receiver: "Bob", timeStamp, sdata }
+    console.log(responseObject);
     res.send(responseObject);
 
     fs.writeFile(CONFPATH, JSON.stringify(config), err => {
