@@ -5,7 +5,12 @@
   "author": "John Doe",
   "main": "server.js",
   "scripts": {
+    "test": "echo \"hello world\"",
     "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmbayu/node-web-app.git"
   },
   "dependencies": {
     "express": "^4.16.1"
