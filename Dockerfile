@@ -9,7 +9,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 RUN mkdir -p /tmp/config
-COPY config.json /tmp/config/
+# COPY config.json /tmp/config/
+COPY config.json ./
 
 RUN npm install
 # If you are building your code for production
