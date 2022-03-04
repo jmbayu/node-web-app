@@ -27,12 +27,12 @@ function jsonReader(filePath, cb) {
 const app = express();
 app.get('/', (req, res) => {
 
-  jsonReader("./config.json", (err, customer) => {
+  jsonReader("./config.json", (err, config) => {
     if (err) {
       console.log("Error reading file:", err);
       return;
     }
-    // increase customer order count by 1
+    // increase config order count by 1
     config.run_count += 1;
     rc=config.run_count;
     //
@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
     var responseObject={ rc, message: "Hello", sender:"Alice", receiver: "Bob", timeStamp}
     res.send(responseObject);
 
-    fs.writeFile("./config.json", JSON.stringify(customer), err => {
+    fs.writeFile("./config.json", JSON.stringify(config), err => {
       if (err) console.log("Error writing file:", err);
     });
   });
