@@ -17,5 +17,4 @@ jobs:
         docker build -t mbayu/node-web-app-image .
         docker build . --file Dockerfile --tag mmbayu/node-web-app-image:$t
         docker images
-        # docker push mmbayu/node-web-app-image:$(date +%s)
-             
+        # docker push mmbayu/node-web-app-image:$t
