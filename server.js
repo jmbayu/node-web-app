@@ -2,8 +2,7 @@
 
 const express = require('express');
 const si = require('systeminformation');
-const fs = require("fs");
-const dateformat = require('dateformat');
+const fs = require('fs');
 
 // Constants
 const PORT = process.env.PORT || "8080";
@@ -48,10 +47,13 @@ app.get('/', (req, res) => {
     var runcount = config.run_count;
     //
     var timeStamp = Math.floor(new Date().getTime() / 1000)
-    let now = new Date();
-    var timeStampHuman = dateformat(now, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
+ 
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed);
 
-    var responseObject={ runcount, timeStampHuman, message: "Hello", sender:"Alice", receiver: "Bob", timeStampHuman, timeStamp, sdata }
+    var isodate=today.toISOString(); 
+
+    var responseObject={ runcount, timeStamp, isodate, message: "Hello", sender:"Alice", receiver: "Bob", sdata }
     console.log(responseObject);
     res.send(responseObject);
 
