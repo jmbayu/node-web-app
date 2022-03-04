@@ -14,6 +14,7 @@ jobs:
         export t=$(date +%s)
         echo $t
         npm test
+        docker login
         # docker build -t mbayu/node-web-app-image .
         docker build . --file Dockerfile --tag mmbayu/node-web-app-image:$t
         docker images
