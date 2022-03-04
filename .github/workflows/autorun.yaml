@@ -16,7 +16,7 @@ jobs:
         npm test
         docker login
         # docker build -t mbayu/node-web-app-image .
-        docker build . --file Dockerfile --tag mmbayu/node-web-app-image:$t
+        docker build . --file Dockerfile --tag mbayu/node-web-app-image:$t
         docker images
-        docker tag mmbayu/node-web-app-image:latest mmbayu/node-web-app-image:$t
-        docker push mmbayu/node-web-app-image:$t
+        docker tag mbayu/node-web-app-image:latest mbayu/node-web-app-image:$t
+        docker push mbayu/node-web-app-image:$t
