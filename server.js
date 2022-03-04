@@ -27,8 +27,9 @@ function jsonReader(filePath, cb) {
 
 // Si
 var sdata={}
-si.cpu(function(si_data) {
-    console.log('CPU-Information:');
+
+si.versions(function(si_data) {
+    console.log('versions:');
     console.log(si_data);
     sdata=si_data
 });
