@@ -12,9 +12,10 @@ jobs:
     - name: docker build push
       run: |
         export t=$(date +%s)
+        echo $t
         npm test
         docker build -t mbayu/node-web-app-image .
-        docker build . --file Dockerfile --tag mmbayu/node-web-app-image:$(t)
+        docker build . --file Dockerfile --tag mmbayu/node-web-app-image:$t
         docker images
         # docker push mmbayu/node-web-app-image:$(date +%s)
              
