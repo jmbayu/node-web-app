@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
     }
     // increase config order count by 1
     config.run_count += 1;
-    rc=config.run_count;
+    var rc = config.run_count;
     //
     var timeStamp = Math.floor(new Date().getTime() / 1000)
     var responseObject={ rc, message: "Hello", sender:"Alice", receiver: "Bob", timeStamp}
