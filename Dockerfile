@@ -8,6 +8,7 @@ WORKDIR /usr/src/app
 # where available (npm@5+)
 COPY package*.json ./
 
+RUN mkdir -p /tmp/config
 COPY config.json /tmp/config/
 
 RUN npm install
