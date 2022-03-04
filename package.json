@@ -13,6 +13,7 @@
     "url": "https://github.com/jmbayu/node-web-app.git"
   },
   "dependencies": {
-    "express": "^4.16.1"
+    "express": "^4.16.1",
+    "systeminformation": "^5.11.6"
   }
 }
