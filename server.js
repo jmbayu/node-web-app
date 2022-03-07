@@ -27,6 +27,7 @@ function jsonReader(filePath, cb) {
 
 // Si
 var sdata={}
+var jsonlog ={};
 
 si.versions(function(si_data) {
     console.log('versions:');
@@ -67,4 +68,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+jsonlog = {Status:"Running", HOST, PORT};
+console.log(jsonlog);
