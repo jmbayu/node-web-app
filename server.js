@@ -9,6 +9,8 @@ const PORT = process.env.PORT || "8080";
 const HOST = process.env.HOST || "0.0.0.0";
 const VERSION = process.env.VERSION || "0.0";
 const CONFPATH="./config.json";
+var respTime, reqTime, duration;
+var responseObject;
 
 // Functions
 function jsonReader(filePath, cb) {
@@ -38,6 +40,7 @@ si.versions(function(si_data) {
 // App
 const app = express();
 app.get('/', (req, res) => {
+  reqTime=Math.floor(new Date().getTime() )
 
   jsonReader(CONFPATH, (err, config) => {
     if (err) {
@@ -49,14 +52,16 @@ app.get('/', (req, res) => {
     var runcount = config.run_count;
     //
     var timeStamp = Math.floor(new Date().getTime() / 1000)
- 
+
     const timeElapsed = Date.now();
     const today = new Date(timeElapsed);
 
     var isodate=today.toISOString(); 
-
-    var responseObject={ runcount, timeStamp, isodate, message: "Hello", sender:"Alice", receiver: "Bob", sdata }
+    respTime=Math.floor(new Date().getTime() )
+    duration = respTime - reqTime ;
+    responseObject={ runcount, timeStamp, isodate, duration, message: "Hello", sender:"Alice", receiver: "Bob", sdata }
     console.log(responseObject);
+
     res.send(responseObject);
 
     fs.writeFile(CONFPATH, JSON.stringify(config), err => {
