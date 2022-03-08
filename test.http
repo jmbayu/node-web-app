@@ -1,0 +1,15 @@
+GET http://10.1.1.181:58080 HTTP/1.1
+
+###
+
+GET http://10.1.1.180 HTTP/1.1
+
+###
+
+POST http://10.1.1.181:58080 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "sample",
+    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
